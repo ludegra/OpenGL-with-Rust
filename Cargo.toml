@@ -1,0 +1,25 @@
+[package]
+name = "triangle_mk2"
+version = "0.1.0"
+authors = ["Ludwig Granstedt <ludwiggranstedt@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "textures"
+path = "src/bin/textures.rs"
+
+[[bin]]
+name = "transformations"
+path = "src/bin/transformations.rs"
+
+[lib]
+name = "opengl_learning"
+
+[dependencies]
+gl = "0.14.0"
+glfw = "0.41.0"
+image = "0.23.14"
+colored = "2.0.0"
+linear_algebra = { path = "../../linear_algebra_in_rust" }
