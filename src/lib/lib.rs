@@ -1,4 +1,7 @@
-pub mod macros;
+pub(crate)
+
+mod macros;
+
 pub mod gl_err_handeling;
 pub mod shader;
 pub mod texture;

@@ -2,7 +2,7 @@ use gl::types::*;
 use gl::{
     CompileShader, CreateShader, GetProgramInfoLog, GetProgramiv, GetShaderInfoLog, GetShaderiv,
     ShaderSource, CreateProgram, AttachShader, LinkProgram, DeleteShader, UseProgram,
-    GetUniformLocation, Uniform1i, Uniform1f
+    GetUniformLocation, Uniform1i, Uniform1f, UniformMatrix4fv
 };
 use std::{ffi::CString, fs::File, io::prelude::*};
 
@@ -79,7 +79,11 @@ impl Shader {
         let name_cstring = std::ffi::CString::new(name).unwrap();
         Uniform1f(GetUniformLocation(self.id, name_cstring.as_ptr()), value);
     }
+    pub unsafe fn set_matrix4f(&self, name: &str, value: linear_algebra::matrix::Matrix4<f32>) {
+
+    }
 }
+
 fn read_shader_file(path: &str, shader_name: &str) -> CString {
     // fromatting error messanges
     let file_err_msg = format!("Failed opening {} file", shader_name);
